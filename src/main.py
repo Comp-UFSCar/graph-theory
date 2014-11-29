@@ -5,16 +5,6 @@ from plot_graph import plot_graph, plot_hist
 import datetime
 import numpy as np
 
-plotly = True
-try:
-    import plotly.plotly as py
-except ImportError:
-    plotly = False
-    print "Plotly not found"
-
-if plotly is True:
-    py.sign_in("thamenato", "aq0t3czzut")
-
 def main():
     nodes = [5, 20, 50, 100, 200]
     p_list = [ i / 10.0 for i in range(0, 11)]
