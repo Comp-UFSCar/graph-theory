@@ -49,7 +49,7 @@ def plot_graph(G,
     return pos
 
 def plot_hist(degree_list, title="", folder=None, img_name="default"):
-    plt.figure(0)
+
     plt.hist(degree_list)
     plt.title(title)
     plt.xlabel("Grau")
