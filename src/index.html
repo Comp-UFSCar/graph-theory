@@ -38,6 +38,7 @@
 
 <div class="container-fluid">
     <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" id="bt-atualiza-grafo" class="nav-link">Restart</a></li>
         <li class="nav-item"><a id="bt-console" href="#" class="nav-link">Console</a></li>
         <li class="nav-item"><a href="#matrix-modal" class="nav-link" data-toggle="modal">adjacency matrix</a></li>
         <li class="nav-item dropdown">
@@ -52,7 +53,6 @@
             <a id="algoritmo-coloracao" class="dropdown-item" href="#">Welch e Powell</a>
         </div>
         </li>
-        <li class="nav-item pull-right"><a href="#" id="bt-atualiza-grafo" class="nav-link">Restart</a></li>
     </ul>
 </div>
 <div id="matrix-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="matrix-modal-label" aria-hidden="true">
@@ -76,24 +76,10 @@
 <div id="docs" class="container-fluid" role="tabpanel">
     <h2>Documentation</h2>
 
-    <h3>Project Description</h3>
-    <p>
-        Project developed for the Graph Theory course at Universidade Federal de Sao Carlos.
-        The application of fundamental algorithms in Graph Theory.
-    </p>
-    <p>
-        <strong>Authors:</strong> <a href="mailto:lucasolivdavid@gmail.com">L. O. David</a>, <a href="mailto:lucas_yamanaka@hotmail.com">L. Yamanaka</a>.<br />
-        <strong>Professor:</strong> <a href="mailto:alexandre@dc.ufscar.br">Alexandre Luis Magalhaes Levada</a>.<br />
-        <strong>Start:</strong> August 1st, 2012, <strong>end:</strong> November 20th, 2012.
-    </p>
-
     <h3>Summary</h3>
     <ul>
         <li>Introduction</li>
         <li>Implemented Algorithms</li>
-        <li>
-            Algorithms Description
-        </li>
         <ul>
             <li>Kruskal's</li>
             <li>Prim's</li>
@@ -109,173 +95,96 @@
             <li>Node Radius Proportional to Connectivity</li>
             <li>Coloring</li>
         </ul>
-        <li>Shortcuts</li>
     </ul>
 
-    <h3>Tabela de algoritmos implementados</h3>
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Algorithm</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Prim</td>
-                <td>Find a minimum spanning tree in weighted graph through local search.</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Kruskal</td>
-                <td>Find a minimum spanning tree in weighted graph.</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Breadth-First Search</td>
-                <td>Search algorithm that prioritarily explores nodes neighbors as they are put in a <strong>queue</strong>.</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Depth-First Search</td>
-                <td>Search algorithm that prioritarily explores nodes neighbors as they are put in a <strong>stack</strong>.</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Dijkstra's Algorithm</td>
-                <td>Find a shortest-path tree in a weighted graph.</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Welch e Powell</td>
-                <td>Graph node coloring algorithm for colision problems.</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3>Algorithms Description</h3>
-    <h4>Prim</h4>
+    <h3>Introduction</h3>
     <p>
-    	Dado um grafo G, o qual possui arestas com custos arbitr�rios cont�dos no intervalo Real,
-        o algoritmo de Prim tem como objetivo alcan�ar a <i>MST - Minimal Spanning Tree</i>
-        (Sedgewick appud Feofiloff, IME-USP, 2012).<br />
-        A abordagem adotada � a escolha da aresta de menor peso dentre todas as arestas adjacentes a
-        algum v�rtice j� alcan�ado, desde que a inser��o esta aresta n�o implique no surgimento de um
-        ciclo.
+        Project developed for the Graph Theory course at Universidade Federal de Sao Carlos.
+        The application of fundamental algorithms in Graph Theory.
     </p>
-    <h5>Difficulties found</h5>
     <p>
-    	A implementa��o do algoritmo de Prim ocorreu seu grandes dificuldades. Uma vez idelizada a ideia de uma estrutura capaz de
-        recodesentar o conjuto de as arestas j� inseridas, evitando assim recorr�ncias de inser��es das mesmas,
-        o grupo foi capaz de desenvolve-lo em pouco tempo e os resultados obtidos foram satisfat�rios.
+        <strong>Authors:</strong> <a href="mailto:lucasolivdavid@gmail.com">L. O. David</a>, <a href="mailto:lucas_yamanaka@hotmail.com">L. Yamanaka</a>.<br />
+        <strong>Professor:</strong> <a href="mailto:alexandre@dc.ufscar.br">Alexandre Luis Magalhaes Levada</a>.<br />
+        <strong>Start:</strong> August 1st, 2012, <strong>end:</strong> November 20th, 2012.
     </p>
 
-    <h4>Kruskal</h4>
+    <h3>Algorithms</h3>
+    <h4>Prim's Algorithm</h4>
     <p>
-        Assim como o algoritmo de Prim, o objetivo do algoritmo de Kruskal � obter a MST. Entretanto utilizando-se de uma
-        abordagem diferente: escolher a menor aresta em todo o grafo desde que essa escolha n�o implique na cria��o de um
-        ciclo.
-    </p>
-    <h5>Difficulties found</h5>
-    <p>
-    	O grupo considerou o Algoritmo de Kruskal como o mais dif�cil, em quest�o de implementa��o. A necessidade de se trabalhar com
-        conjuntos de v�rtices implica em uma grande quantidade de linhas de c�digo para manipular vetores, aumentando ou unindo-os.
-        Em compara��o com o algoritmo de Prim, podemos dizer que ele possui uma perda significativa de desempenho, ao menos neste
-        projeto. Entretanto, � n�tido que o algoritmo de Kruskal tem um efeito significativamente superior em grafos desconexos:
-        este tem como resultado uma floresta contendo todas as MSTs extra�das das comunidades n�o interligadas, enquanto o
-        algoritmo de Prim seria apenas capaz de resultar na MST da comunidade que cont�m o v�rtice inicial.
+        Let <code>G=(V, E)</code> be a graph and E a set of edges with arbitrary weights contained in the Real interval.
+        Prim's algorithm will extract the <code>Minimum Spanning Tree</code> <small>(Sedgewick appud Feofiloff, IME-USP, 2012)</small>,
+        i.e., the acyclic subgraph such that the sum of all edges weights is minimum.<br />
+        The construction of the <code>MST</code> is done by selecting the edge with minimum weight between the set of edges
+        adjacent to the previously expanded nodes, as long as this selection does not imply on the creation
+        of a cycle.
     </p>
 
-    <h4>Busca em largura</h4>
+    <h4>Kruskal's Algorithm</h4>
     <p>
-        A busca em largura, ou BFS (Breadth First Search), tem como objetivo obter o tamanho do menor caminho entre dois v�rtices.
-        A partir dele, tamb�m � poss�vel aplicar backtracking para descobrir quantos caminhos existem entre eles. A busca em
-        largura monta uma �rvore visitando todos os vizinhos de um v�rtice antes de avan�ar para o pr�ximo.
+        Similarly to Prim's algorithm, Kruskal's goal is also to extract a <code>MST</code> from a graph. However, it will do so
+        by removing the edge with smallest weight between all edges not yet evaluated (differently from Prim's, which
+        only considers the ones that touch the expanded nodes).
     </p>
-    <h5>Dificuldades</h5>
+    <h5>Difficulties Found</h5>
     <p>
-        A busca em largura � considerada pelo grupo o algoritmo de mais f�cil implementa��o. Tamb�m se mostra um dos menores algoritmos, em quest�o
-        de linhas de c�digo.
+        We considered Kruskal's as the most difficult algorithm to implement.
+        Working with sets of nodes to prevent cycles implied in the writing of many lines of code.
+        We concluded that our Kruskal's implementation presents significant less performance than
+        Prim's.<br />
+        We understand, however, Kruskal's efficacy when dealing with disconnected graphs: it will successfully
+        extract a forest of <code>MST's</code> of all non-connected communities, whereas Prim's would only be able to
+        extract a single tree, possibily presenting different answers when starting from different nodes.
     </p>
 
-    <h4>Busca em profundidade</h4>
+    <h4>Breadth-First Search</h4>
     <p>
-        Busca em profundidade, tamb�m conhecida como DFS (Depth First Search), tamb�m monta uma �rvore semelhantemente � busca em
-        largura, mas de forma diferente: ela visita v�rtice ap�s v�rtice, at� n�o encontrar caminhos v�lidos, e s� entao volta por
-        eles para procurar mais v�rtices. Esta busca possui diversas aplica��es, por exemplo, encontrar a sa�da de um labirinto.
+        BFS will transverse the graph and extract a path with fewest hops between the starting node and all the others.
+        BFS trees are characteristically short, and contain many cluster nodes.<br />
+        BFS disconnected graphs will - without doubt - leave one or more nodes out of the resulting tree.<br />
+        BFS was considered by the group as the easiest - and shortest - algorithm to implement.
     </p>
-    <h5>Difficulties found</h5>
+
+    <h4>Depth-First Search</h4>
     <p>
-        O algoritmo de busca em profundidade n�o acodesentou nenhuma dificuldade. De fato, a utiliza��o de um algoritmo recursivo proporcionou uma
-        quantidade reduzida de linhas de c�digo.
+        Like BFS, DFS will also produce a tree. This tree, however, will have a very peculiar shape: as the node's children at the most-left
+        - or most-right - are aways recursively expanded first, the algorithm will produce tall trees, most likely with very few clusters.
+        <br />
+        This approach has many applications, such as maze solving.
     </p>
 
     <h4>Dijkstra's Algorithm</h4>
     <p>
-        Dijkstra � semelhante ao algoritmo de Prim, mas com uma diferen�a: Este garante uma �rvore de caminhos m�nimos, ou seja,
-        dados dois v�rtices, a dist�ncia entre eles atrav�s do grafo resultante ser� a menor poss�vel.
-        Neste algoritmo, inicia-se com um v�rtice inicial dado peso zero, e os demais peso infinito. A partir do v�rtice de peso
-        zero, � aplicado o relaxamento das arestas at� seus vizinhos, e isto � repetido para o pr�ximo v�rtice de menor peso
-        (que ainda n�o foi escolhido).
-    </p>
-    <h5>Difficulties found</h5>
-    <p>
-        Nenhuma dificuldade foi encontrada no algoritmo de Dijkstra.
+        Dijkstra's many goal is to extract a <code>Shortest-path Tree</code>. That is, a acyclic subgraph which
+        represents the shortest path (in this context, shortest is equivalent to smaller weight sum)
+        between the origin to all the other nodes.
     </p>
 
-    <h4>Welch e Powell</h4>
+    <h4>Welch and Powell's Algorithm</h4>
     <p>
-        O algoritmo de Welch e Powell tem como objetivo obter a sequ�ncia de cores correspondente aos v�rtices
-        de um grafo de maneira que n�o seja atribu�do a nenhum v�rtice adjacente uma mesma cor e o n�mero
-        m�nimo de cores seja utilizado. Obviamente, tal algoritmo n�o admite grafos com <i>loops</i>.
-    </p>
-    <h5>Difficulties found</h5>
-    <p>
-        Houve uma dificuldade em conseguir representar as cores dos v�rtices nos grafos devido a forma como a construc�o gr�fica
-        havia sido implementada: <code>Grafo.Grafico.Init()</code> que � chamado sem par�metro algum, para construir o grafo
-        em cima da matriz de adjac�ncia <code>Grafo.MatrizAdj</code> ou um parametro <code>true</code> caso devesse construir o grafo
-        sobre <code>Grafo.Algoritmos.MatrizAdj</code> (a matriz gerada por algum dos algoritmos aplicados).<br />
-        Al�m da necessidade de manter a matriz de adjac�ncia original, era necess�rio passar mais uma informac�o: o conjunto
-        de cores relacionadas aos v�rtices.<br />
-        Utilizou-se ent�o a seguinte representac�o: <code>Grafo.Algoritmos.MatrizAdj</code> seria copiada para
-        <code>Grafo.Algoritmos.MatrizAdj</code> e as posic�es <b>[i][i]</b> desta seri�o utilizadas para indicar qual cor o
-        v�rtice <b>i</b> assumiria (uma vez que no grafo original estas posic�es seriam necessariamente <b>0</b>).
+        Given a sequence of colors, Welch e Powell's algorithm will attempt to paint each node of the graph in
+        such a way that no adjacent nodes are painted in the same colors. Furthermore, the smallest number of colors
+        will be used.<br />
+        Welch and Powell's is broadly used for solving collision problems.<br />
+        Obvisouly, this doesn't apply to graphs with nodes that are connected to themselves.
     </p>
 
     <h3>Graphical Features Developed</h3>
-
-    <h4>Diferencia��o de v�rtices proporcional ao n�mero de liga��es</h4>
+    <h4>Node Radius Proportional to Connectivity</h4>
     <p>
-    	Inicialmente, sob o ponto de vista do grupo, seria realmente interessante o desenvolvimento de uma caracter�stica gr�fica
-        espec�fica: a recodesenta��o de v�rtices de diferentes tamanhos, respeitando uma proporcionalidade, isto �,
-        atribuir essa diferen�a um sentido real.
-        Naturalmente, foi associado a esta caracter�stica a quantidade de liga��es que um determinado v�rtice realizava.
+        Initially, the group thought it would be interesting to represent the connectivity of the nodes by their sizes.
+        Nodes strongly connected (hubs) would present bigger sizes and nodes weakly connected, smaller ones.
     </p>
-    <h5>Dificuldades</h5>
+    <h5>Difficulties Found</h5>
     <p>
-    	Observou-se grandes dificuldades em recodesentar grafos em que os v�rtices mantinham grandes disparidades,
-        em rela��o a seus graus, uma vez que v�rtices com muitas conex�es se tornavam exorbitantemente grandes.
-        A fim de superar esse erro, o tamanho dos v�rtices seriam ent�o definidos a partir do resultado da divis�o entre seu pr�prio grau
-        e a m�dia de graus de todos os v�rtices. Al�m disso, uma constante foi definida: essa corresponde ao limite inferior do intervalo
-        que o raio de um v�rtice pode alcan�ar, enquanto o triplo desta mesma � o limitante superior.
+        We observed a great difficulty in maintaing reasonable proportions in the nodes's sizes, after implementing this
+        feature. In order to overcome this problem, we decided that the size should be a constant scalled by the rate between the node connectivity and
+        the average graph connectivity.
     </p>
-    <hr />
 
     <h4>Coloring</h4>
     <p>
-        A fim de demonstrar a aplica��o do algoritmo de colora��o de grafos, uma fun��o gr�fica foi adicionado ao trecho de c�digo
-        respons�vel por desenhar o grafo na p�gina. Quando o algoritmo de colora��o � aplicado e invoca a fun��o
-        <strong>Grafo.Grafico.Init('coloracao')</strong>, esta percorrer� a matriz de adjac�ncia nas posi��es (i, i), adicionando
-        ao atributo <code>cor</code> um inteiro qualquer.
-        Quando outro algoritmo, que n�o o de colorac�o, � aplicado, o atributo <code>cor</code> � sempre inicializado
-        com <b>0</b>.
-    </p>
-    <h5>Dificuldades</h5>
-    <p>
-        Nenhuma dificuldade foi encontrada nesse momento, uma vez que a biblioteca <strong>D3</strong> possui o
-        m�todo <strong>color()</strong>, implementado a fim de converter um inteiro qualquer em uma cor v�lida.
+        In order to demonstrate <code>Welch and Powell's</code> algorithm, a feature was implemented to re-draw the entire graph, but
+        considering an additional <strong>color</strong> property.
     </p>
 </div>
 <br /><br /><br />
