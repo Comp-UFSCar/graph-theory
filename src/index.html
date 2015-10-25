@@ -12,248 +12,246 @@
     <script src="js/libs/jquery.min.js" type="text/javascript"></script>
     <script src="js/libs/bootstrap.3.min.js" type="text/javascript"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar-main">
+    <nav class="navbar navbar-light navbar-fixed-top bg-faded">
+      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-main">
+        &#9776;
+      </button>
+      <div class="collapse navbar-toggleable-xs" id="navbar-main">
+        <a class="navbar-brand" href="#">Graph Theory</a>
+        <ul id="site-sections" class="nav navbar-nav pull-right" role="tablist">
+          <li class="nav-item active">
+            <a class="nav-link" href="#graph" role="tab" aria-controls="graph">Graph</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#docs" role="tab" aria-controls="docs">Docs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#references" role="tab" aria-controls="references">References</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br /><br /><br />
 
-<nav class="navbar navbar-light navbar-fixed-top bg-faded">
-  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-main">
-    &#9776;
-  </button>
-  <div class="collapse navbar-toggleable-xs" id="navbar-main">
-    <a class="navbar-brand" href="#">Graph Theory</a>
-    <ul id="site-sections" class="nav navbar-nav" role="tablist">
-      <li class="nav-item active">
-        <a class="nav-link" href="#graph" role="tab" data-toggle="tab"
-         aria-controls="graph">Graph <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#docs" role="tab" data-toggle="tab" aria-controls="docs">Docs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#references" role="tab" data-toggle="tab" aria-controls="references">References</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<br /><br /><br />
-
-<div class="container-fluid">
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" id="bt-atualiza-grafo" class="nav-link">Restart</a></li>
-        <li class="nav-item"><a id="bt-console" href="#" class="nav-link">Console</a></li>
-        <li class="nav-item"><a href="#matrix-modal" class="nav-link" data-toggle="modal">adjacency matrix</a></li>
-        <li class="nav-item dropdown">
-        <a class="dropdown-toggle nav-link" id="bt-algoritmos" role="button" data-toggle="dropdown" href="#"
-            aria-haspopup="true" aria-expanded="false"> Algorithms</a>
-        <div class="dropdown-menu">
-            <a id="algoritmo-kruskal" class="dropdown-item" href="#">Kruskal's</a>
-            <a id="algoritmo-prim" class="dropdown-item" href="#">Prim's</a>
-            <a id="algoritmo-dijkstra" class="dropdown-item" href="#">Dijkstra's</a>
-            <a id="algoritmo-profundidade" class="dropdown-item" href="#">Depth-First Search</a>
-            <a id="algoritmo-largura" class="dropdown-item" href="#">Breadth-First Search</a>
-            <a id="algoritmo-coloracao" class="dropdown-item" href="#">Welch e Powell</a>
+    <div class="container-fluid">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" id="bt-atualiza-grafo" class="nav-link">Restart</a></li>
+            <li class="nav-item"><a id="bt-console" href="#" class="nav-link">Console</a></li>
+            <li class="nav-item"><a href="#matrix-modal" class="nav-link" data-toggle="modal">adjacency matrix</a></li>
+            <li class="nav-item dropdown">
+            <a class="dropdown-toggle nav-link" id="bt-algoritmos" role="button" data-toggle="dropdown" href="#"
+                aria-haspopup="true" aria-expanded="false"> Algorithms</a>
+            <div class="dropdown-menu">
+                <a id="algoritmo-kruskal" class="dropdown-item" href="#">Kruskal's</a>
+                <a id="algoritmo-prim" class="dropdown-item" href="#">Prim's</a>
+                <a id="algoritmo-dijkstra" class="dropdown-item" href="#">Dijkstra's</a>
+                <a id="algoritmo-profundidade" class="dropdown-item" href="#">Depth-First Search</a>
+                <a id="algoritmo-largura" class="dropdown-item" href="#">Breadth-First Search</a>
+                <a id="algoritmo-coloracao" class="dropdown-item" href="#">Welch e Powell</a>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <div id="matrix-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="matrix-modal-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="matrix-modal-label">adjacency matrix</h3>
         </div>
-        </li>
-    </ul>
-</div>
-<div id="matrix-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="matrix-modal-label" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 id="matrix-modal-label">adjacency matrix</h3>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
     </div>
-    <div class="modal-body">
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
-</div>
 
-<hr class="soften tag-border" />
+    <hr class="soften tag-border" />
 
-<div id="graph" name="graph" class="container"></div>
-<hr class="soften tag-border" />
-<br /><br /><br />
+    <div id="graph" class="container"></div>
+    <hr class="soften tag-border" />
+    <br /><br /><br />
 
-<div id="docs" class="container-fluid" role="tabpanel">
-    <h2>Documentation</h2>
+    <div id="docs" class="container-fluid" role="tabpanel">
+        <h2>Documentation</h2>
 
-    <h3>Summary</h3>
-    <ul>
-        <li>Introduction</li>
-        <li>Implemented Algorithms</li>
+        <h3>Summary</h3>
         <ul>
-            <li>Kruskal's</li>
-            <li>Prim's</li>
-            <li>Dijkstra's</li>
-            <li>Breadth-First Search</li>
-            <li>Depth-First Search</li>
-            <li>Welch e Powell</li>
+            <li>Introduction</li>
+            <li>Implemented Algorithms</li>
+            <ul>
+                <li>Kruskal's</li>
+                <li>Prim's</li>
+                <li>Dijkstra's</li>
+                <li>Breadth-First Search</li>
+                <li>Depth-First Search</li>
+                <li>Welch e Powell</li>
+            </ul>
+            <li>
+                Graphical Features Developed
+            </li>
+            <ul>
+                <li>Node Radius Proportional to Connectivity</li>
+                <li>Coloring</li>
+            </ul>
         </ul>
-        <li>
-            Graphical Features Developed
-        </li>
-        <ul>
-            <li>Node Radius Proportional to Connectivity</li>
-            <li>Coloring</li>
-        </ul>
-    </ul>
 
-    <h3>Introduction</h3>
-    <p>
-        Project developed for the Graph Theory course at Universidade Federal de Sao Carlos.
-        The application of fundamental algorithms in Graph Theory.
-    </p>
-    <p>
-        <strong>Authors:</strong> <a href="mailto:lucasolivdavid@gmail.com">L. O. David</a>, <a href="mailto:lucas_yamanaka@hotmail.com">L. Yamanaka</a>.<br />
-        <strong>Professor:</strong> <a href="mailto:alexandre@dc.ufscar.br">Alexandre Luis Magalhaes Levada</a>.<br />
-        <strong>Start:</strong> August 1st, 2012, <strong>end:</strong> November 20th, 2012.
-    </p>
-
-    <h3>Algorithms</h3>
-    <h4>Prim's Algorithm</h4>
-    <p>
-        Let <code>G=(V, E)</code> be a graph and E a set of edges with arbitrary weights contained in the Real interval.
-        Prim's algorithm will extract the <code>Minimum Spanning Tree</code> <small>(Sedgewick appud Feofiloff, IME-USP, 2012)</small>,
-        i.e., the acyclic subgraph such that the sum of all edges weights is minimum.<br />
-        The construction of the <code>MST</code> is done by selecting the edge with minimum weight between the set of edges
-        adjacent to the previously expanded nodes, as long as this selection does not imply on the creation
-        of a cycle.
-    </p>
-
-    <h4>Kruskal's Algorithm</h4>
-    <p>
-        Similarly to Prim's algorithm, Kruskal's goal is also to extract a <code>MST</code> from a graph. However, it will do so
-        by removing the edge with smallest weight between all edges not yet evaluated (differently from Prim's, which
-        only considers the ones that touch the expanded nodes).
-    </p>
-    <h5>Difficulties Found</h5>
-    <p>
-        We considered Kruskal's as the most difficult algorithm to implement.
-        Working with sets of nodes to prevent cycles implied in the writing of many lines of code.
-        We concluded that our Kruskal's implementation presents significant less performance than
-        Prim's.<br />
-        We understand, however, Kruskal's efficacy when dealing with disconnected graphs: it will successfully
-        extract a forest of <code>MST's</code> of all non-connected communities, whereas Prim's would only be able to
-        extract a single tree, possibily presenting different answers when starting from different nodes.
-    </p>
-
-    <h4>Breadth-First Search</h4>
-    <p>
-        BFS will transverse the graph and extract a path with fewest hops between the starting node and all the others.
-        BFS trees are characteristically short, and contain many cluster nodes.<br />
-        BFS disconnected graphs will - without doubt - leave one or more nodes out of the resulting tree.<br />
-        BFS was considered by the group as the easiest - and shortest - algorithm to implement.
-    </p>
-
-    <h4>Depth-First Search</h4>
-    <p>
-        Like BFS, DFS will also produce a tree. This tree, however, will have a very peculiar shape: as the node's children at the most-left
-        - or most-right - are aways recursively expanded first, the algorithm will produce tall trees, most likely with very few clusters.
-        <br />
-        This approach has many applications, such as maze solving.
-    </p>
-
-    <h4>Dijkstra's Algorithm</h4>
-    <p>
-        Dijkstra's many goal is to extract a <code>Shortest-path Tree</code>. That is, a acyclic subgraph which
-        represents the shortest path (in this context, shortest is equivalent to smaller weight sum)
-        between the origin to all the other nodes.
-    </p>
-
-    <h4>Welch and Powell's Algorithm</h4>
-    <p>
-        Given a sequence of colors, Welch e Powell's algorithm will attempt to paint each node of the graph in
-        such a way that no adjacent nodes are painted in the same colors. Furthermore, the smallest number of colors
-        will be used.<br />
-        Welch and Powell's is broadly used for solving collision problems.<br />
-        Obvisouly, this doesn't apply to graphs with nodes that are connected to themselves.
-    </p>
-
-    <h3>Graphical Features Developed</h3>
-    <h4>Node Radius Proportional to Connectivity</h4>
-    <p>
-        Initially, the group thought it would be interesting to represent the connectivity of the nodes by their sizes.
-        Nodes strongly connected (hubs) would present bigger sizes and nodes weakly connected, smaller ones.
-    </p>
-    <h5>Difficulties Found</h5>
-    <p>
-        We observed a great difficulty in maintaing reasonable proportions in the nodes's sizes, after implementing this
-        feature. In order to overcome this problem, we decided that the size should be a constant scalled by the rate between the node connectivity and
-        the average graph connectivity.
-    </p>
-
-    <h4>Coloring</h4>
-    <p>
-        In order to demonstrate <code>Welch and Powell's</code> algorithm, a feature was implemented to re-draw the entire graph, but
-        considering an additional <strong>color</strong> property.
-    </p>
-</div>
-<br /><br /><br />
-
-<div id="references" class="container-fluid" role="tabpanel">
-    <h2>References</h2>
-    <ul>
-        <li>
-            <a href="http://www.ime.usp.br/~pf/algoritmos_para_grafos/aulas/kruskal.html">
-                ime.usp.br/~pf/algoritmos_para_grafos/aulas/kruskal.html
-            </a>
-        </li>
-        <li>
-            <a href="http://www.ime.usp.br/~pf/algoritmos_para_grafos/aulas/prim.html">
-                ime.usp.br/~pf/algoritmos_para_grafos/aulas/prim.html
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                Fundamentos da Teoria dos Grafos para a Computacao
-            </a>
-        </li>
-        <li>
-            <a href="http://maratona.viniciusfortuna.com/Teoria-dos-Grafos/Grafos---Implementa%C3%A7%C3%B5es#TOC-Busca-em-Largura-BFS-">
-                maratona.viniciusfortuna.com/Teoria-dos-Grafos/Grafos [...]
-            </a>
-        </li>
-        <li>
-            <a href="http://www.mat.ufmg.br/~elaine/Aperfeicoamento/aula01.pdf">
-                mat.ufmg.br/~elaine/Aperfeicoamento/aula01.pdf
-            </a>
-        </li>
-        <li>
-            <a href="http://www.portugal-a-programar.pt/topic/16357-grafos/">
-                portugal-a-programar.pt/topic/16357-grafos/
-            </a>
-        </li>
-        <li>
-            <a href="http://www.professeurs.polymtl.ca/michel.gagnon/Disciplinas/Bac/Grafos/Arvores/arvores.html#Guloso">
-                professeurs.polymtl.ca/michel.gagnon [...]
-            </a>
-        </li>
-    </ul>
-</div>
-
-<footer class="footer">
-    <div class="container-fluid text-right">
+        <h3>Introduction</h3>
         <p>
-            <a href="mailto:lucasolivdavid@gmail.com">L. O. David</a>,
-            <a href="mailto:lucas_yamanaka@hotmail.com">L. Yamanaka</a>,
-            November 20th, 2012.<br>
-            <a href="http://github.com/" target="_new">GitHub repository</a>.
+            Project developed for the Graph Theory course at Universidade Federal de Sao Carlos.
+            The application of fundamental algorithms in Graph Theory.
+        </p>
+        <p>
+            <strong>Authors:</strong> <a href="mailto:lucasolivdavid@gmail.com">L. O. David</a>, <a href="mailto:lucas_yamanaka@hotmail.com">L. Yamanaka</a>.<br />
+            <strong>Professor:</strong> <a href="mailto:alexandre@dc.ufscar.br">Alexandre Luis Magalhaes Levada</a>.<br />
+            <strong>Start:</strong> August 1st, 2012, <strong>end:</strong> November 20th, 2012.
+        </p>
+
+        <h3>Algorithms</h3>
+        <h4>Prim's Algorithm</h4>
+        <p>
+            Let <code>G=(V, E)</code> be a graph and E a set of edges with arbitrary weights contained in the Real interval.
+            Prim's algorithm will extract the <code>Minimum Spanning Tree</code> <small>(Sedgewick appud Feofiloff, IME-USP, 2012)</small>,
+            i.e., the acyclic subgraph such that the sum of all edges weights is minimum.<br />
+            The construction of the <code>MST</code> is done by selecting the edge with minimum weight between the set of edges
+            adjacent to the previously expanded nodes, as long as this selection does not imply on the creation
+            of a cycle.
+        </p>
+
+        <h4>Kruskal's Algorithm</h4>
+        <p>
+            Similarly to Prim's algorithm, Kruskal's goal is also to extract a <code>MST</code> from a graph. However, it will do so
+            by removing the edge with smallest weight between all edges not yet evaluated (differently from Prim's, which
+            only considers the ones that touch the expanded nodes).
+        </p>
+        <h5>Difficulties Found</h5>
+        <p>
+            We considered Kruskal's as the most difficult algorithm to implement.
+            Working with sets of nodes to prevent cycles implied in the writing of many lines of code.
+            We concluded that our Kruskal's implementation presents significant less performance than
+            Prim's.<br />
+            We understand, however, Kruskal's efficacy when dealing with disconnected graphs: it will successfully
+            extract a forest of <code>MST's</code> of all non-connected communities, whereas Prim's would only be able to
+            extract a single tree, possibily presenting different answers when starting from different nodes.
+        </p>
+
+        <h4>Breadth-First Search</h4>
+        <p>
+            BFS will transverse the graph and extract a path with fewest hops between the starting node and all the others.
+            BFS trees are characteristically short, and contain many cluster nodes.<br />
+            BFS disconnected graphs will - without doubt - leave one or more nodes out of the resulting tree.<br />
+            BFS was considered by the group as the easiest - and shortest - algorithm to implement.
+        </p>
+
+        <h4>Depth-First Search</h4>
+        <p>
+            Like BFS, DFS will also produce a tree. This tree, however, will have a very peculiar shape: as the node's children at the most-left
+            - or most-right - are aways recursively expanded first, the algorithm will produce tall trees, most likely with very few clusters.
+            <br />
+            This approach has many applications, such as maze solving.
+        </p>
+
+        <h4>Dijkstra's Algorithm</h4>
+        <p>
+            Dijkstra's many goal is to extract a <code>Shortest-path Tree</code>. That is, a acyclic subgraph which
+            represents the shortest path (in this context, shortest is equivalent to smaller weight sum)
+            between the origin to all the other nodes.
+        </p>
+
+        <h4>Welch and Powell's Algorithm</h4>
+        <p>
+            Given a sequence of colors, Welch e Powell's algorithm will attempt to paint each node of the graph in
+            such a way that no adjacent nodes are painted in the same colors. Furthermore, the smallest number of colors
+            will be used.<br />
+            Welch and Powell's is broadly used for solving collision problems.<br />
+            Obvisouly, this doesn't apply to graphs with nodes that are connected to themselves.
+        </p>
+
+        <h3>Graphical Features Developed</h3>
+        <h4>Node Radius Proportional to Connectivity</h4>
+        <p>
+            Initially, the group thought it would be interesting to represent the connectivity of the nodes by their sizes.
+            Nodes strongly connected (hubs) would present bigger sizes and nodes weakly connected, smaller ones.
+        </p>
+        <h5>Difficulties Found</h5>
+        <p>
+            We observed a great difficulty in maintaing reasonable proportions in the nodes's sizes, after implementing this
+            feature. In order to overcome this problem, we decided that the size should be a constant scalled by the rate between the node connectivity and
+            the average graph connectivity.
+        </p>
+
+        <h4>Coloring</h4>
+        <p>
+            In order to demonstrate <code>Welch and Powell's</code> algorithm, a feature was implemented to re-draw the entire graph, but
+            considering an additional <strong>color</strong> property.
         </p>
     </div>
-</footer>
+    <br /><br /><br />
 
-<script src="js/libs/d3.v2.min.js"></script>
+    <div id="references" class="container-fluid" role="tabpanel">
+        <h2>References</h2>
+        <ul>
+            <li>
+                <a href="http://www.ime.usp.br/~pf/algoritmos_para_grafos/aulas/kruskal.html">
+                    ime.usp.br/~pf/algoritmos_para_grafos/aulas/kruskal.html
+                </a>
+            </li>
+            <li>
+                <a href="http://www.ime.usp.br/~pf/algoritmos_para_grafos/aulas/prim.html">
+                    ime.usp.br/~pf/algoritmos_para_grafos/aulas/prim.html
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Fundamentos da Teoria dos Grafos para a Computacao
+                </a>
+            </li>
+            <li>
+                <a href="http://maratona.viniciusfortuna.com/Teoria-dos-Grafos/Grafos---Implementa%C3%A7%C3%B5es#TOC-Busca-em-Largura-BFS-">
+                    maratona.viniciusfortuna.com/Teoria-dos-Grafos/Grafos [...]
+                </a>
+            </li>
+            <li>
+                <a href="http://www.mat.ufmg.br/~elaine/Aperfeicoamento/aula01.pdf">
+                    mat.ufmg.br/~elaine/Aperfeicoamento/aula01.pdf
+                </a>
+            </li>
+            <li>
+                <a href="http://www.portugal-a-programar.pt/topic/16357-grafos/">
+                    portugal-a-programar.pt/topic/16357-grafos/
+                </a>
+            </li>
+            <li>
+                <a href="http://www.professeurs.polymtl.ca/michel.gagnon/Disciplinas/Bac/Grafos/Arvores/arvores.html#Guloso">
+                    professeurs.polymtl.ca/michel.gagnon [...]
+                </a>
+            </li>
+        </ul>
+    </div>
 
-<script src="js/core/appkeys.js" type="text/javascript"></script>
-<script src="js/core/console.js" type="text/javascript"></script>
-<script src="js/core/grafo.js" type="text/javascript"></script>
-<script src="js/core/grafo-grafico.js" type="text/javascript"></script>
-<script src="js/core/algoritmos/kruskal.js" type="text/javascript"></script>
-<script src="js/core/algoritmos/prim.js" type="text/javascript"></script>
-<script src="js/core/algoritmos/dijkstra.js" type="text/javascript"></script>
-<script src="js/core/algoritmos/profundidade.js" type="text/javascript"></script>
-<script src="js/core/algoritmos/largura.js" type="text/javascript"></script>
-<script src="js/core/algoritmos/coloracao.js" type="text/javascript"></script>
+    <footer class="footer">
+        <div class="container-fluid text-right">
+            <p>
+                <a href="mailto:lucasolivdavid@gmail.com">L. O. David</a>,
+                <a href="mailto:lucas_yamanaka@hotmail.com">L. Yamanaka</a>,
+                November 20th, 2012.<br>
+                <a href="http://github.com/" target="_new">GitHub repository</a>.
+            </p>
+        </div>
+    </footer>
 
-<script src="js/app.js" type="text/javascript"></script>
+    <script src="js/libs/d3.v2.min.js"></script>
+
+    <script src="js/core/appkeys.js" type="text/javascript"></script>
+    <script src="js/core/console.js" type="text/javascript"></script>
+    <script src="js/core/grafo.js" type="text/javascript"></script>
+    <script src="js/core/grafo-grafico.js" type="text/javascript"></script>
+    <script src="js/core/algoritmos/kruskal.js" type="text/javascript"></script>
+    <script src="js/core/algoritmos/prim.js" type="text/javascript"></script>
+    <script src="js/core/algoritmos/dijkstra.js" type="text/javascript"></script>
+    <script src="js/core/algoritmos/profundidade.js" type="text/javascript"></script>
+    <script src="js/core/algoritmos/largura.js" type="text/javascript"></script>
+    <script src="js/core/algoritmos/coloracao.js" type="text/javascript"></script>
+
+    <script src="js/app.js" type="text/javascript"></script>
 </body>
 </html>
