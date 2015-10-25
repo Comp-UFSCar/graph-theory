@@ -1,0 +1,25 @@
+li.console-item {
+    font-size:12px;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display:block;
+}
+
+#graph-console {
+    text-decoration: none;
+    margin:0;
+    padding:0;
+}
+
+li > .console-message-edge {
+    color:#ff9900;
+}
+
+li > .console-message-node {
+    color:#0480be;
+}
+
+div.tooltip-inner {
+    text-align:left;
+}
