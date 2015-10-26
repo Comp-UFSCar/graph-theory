@@ -44,6 +44,10 @@ $(document).ready(function() {
         Grafo.Algoritmos.Largura();
         return false;
     })
+    $('#algoritmo-nearest').click(function() {
+        Grafo.Algoritmos.nearestNeighbor();
+        return false;
+    })
     $('#algoritmo-coloracao').click(function() {
         return Grafo.Algoritmos.Coloracao();
         return false;

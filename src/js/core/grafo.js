@@ -23,23 +23,22 @@
         }
     }
 
-    var Init = function(pAlg) {
-        var tmpMatrizAdj = pAlg && pAlg !== 'coloracao' ? Grafo.Algoritmos.MatrizAdj : Grafo.MatrizAdj,
-            i, j
+    var Init = function(args) {
+        var m = args && args !== 'coloracao' ? Grafo.Algoritmos.MatrizAdj : Grafo.MatrizAdj;
+        var i, j;
 
-        // ENCONTRA GRAU DE CADA VERTICE
-        Grafo.Grau = new Array(tmpMatrizAdj.length); // vetor que armazena grau de cada vertice
+        Grafo.Grau = new Array(m.length); // vetor que armazena grau de cada vertice
 
         for(i = 0; i < Grafo.Grau.length; i++)
             Grafo.Grau[i] = 0;
 
         for(i = 0; i < Grafo.Grau.length; i++) {
-            if(tmpMatrizAdj[i][i] > 0)
+            if(m[i][i] > 0)
                 Grafo.Grau[i] += 2; // soma 2 no grau caso o elemento [i][i] tenha um loop
 
             // percore a matriz e verifica se existe uma aresta que liga os vertices i e j
             for(j = i +1; j < Grafo.Grau.length; j++)
-                if(tmpMatrizAdj[i][j] > 0) { // existe uma aresta entre i e j
+                if(m[i][j] > 0) { // existe uma aresta entre i e j
                     Grafo.Grau[i]++;             // vertice origem tem seu grau incrementado
                     Grafo.Grau[j]++;
                 }
