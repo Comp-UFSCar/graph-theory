@@ -16,19 +16,18 @@
  */
 
 (function() {
-
-    var Coloracao = function() {
+    Grafo.Algoritmos.Coloracao = function() {
         if (Grafo.Direcionado) {
-            lnConsole.message('Desculpe, mas Coloracao ainda não foi implementado para grafos direcionados!')
+            console.log('Directed graphs are not supported.');
             return 0
         }
-        lnConsole.message('Inicio do algoritmo de Coloracao.')
-        console.log('Inicio do algoritmo de Coloracao.')
+
+        console.log('Starting Welch and Powell\'s algorithm...')
 
         for (i = 0; i < Grafo.MatrizAdj.length; i++)
             if (Grafo.MatrizAdj[i][i] != 0) {
-                lnConsole.message('Erro! Coloração de grafos não admite <i>loops</i>!')
-                return false
+                console.log('Error! Welch and Powell\'s doesn\'t admit nodes with link to themselves.');
+                return false;
             }
 
         var mat = [], C = [], cores = [], corAtual, i, j, k,
@@ -57,22 +56,24 @@
         // Como coloracao de grafos nao admite loops, vamos armazenar as cores dos vertices
         // na posicao i,i da propria matriz de adjacencia.
         for (i = 0; i < C.length; i++) {
-            corAtual = mat[ C[i].vertice ][ C[i].vertice ] = C[i].cores[0] // vertice C[i].vertice recebe a primeira cor de sua lista
-            lnConsole.message('Cor do v�rtice [' +(C[i].vertice +1) +']: ' +(corAtual +1))
+            // vertice C[i].vertice recebe a primeira cor de sua lista
+            corAtual = mat[ C[i].vertice ][ C[i].vertice ] = C[i].cores[0]
+
+            console.log('Vertice [' +(C[i].vertice +1) +']\'s color: ' + (corAtual + 1));
 
             if (corAtual > qtdCoresUtil) // acha o numero minimo de cores
-                qtdCoresUtil = corAtual  // a fim de colorir o grafo
+                qtdCoresUtil = corAtual;  // a fim de colorir o grafo
 
             for (j = i +1; j < C.length; j++)                             // para todos os outros vertices que ainda nao
                 if (Grafo.MatrizAdj[ C[i].vertice ][ C[j].vertice ] != 0) // foram analisados que sao vizinhos de C[i].vertice
                     C[j].cores.splice(C[j].cores.indexOf( corAtual ), 1)  // retira cor da lista de cores do vertice adjacente
         }
 
-        lnConsole.message('N�mero de cores utilizadas: ' +qtdCoresUtil)
+        console.log(qtdCoresUtil + ' colors were used.')
 
-        Grafo.Algoritmos.MatrizAdj = mat
-        App('coloracao')
-        return false
+        Grafo.Algoritmos.MatrizAdj = mat;
+        App('coloracao');
+        return false;
     }
 
     function SelectionSort(_C) {
@@ -94,6 +95,4 @@
 
         return _C
     }
-
-    Grafo.Algoritmos.Coloracao = Coloracao // retorna metodo publico
-}())
+}());

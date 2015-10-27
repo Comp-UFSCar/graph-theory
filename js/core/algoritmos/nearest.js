@@ -1,5 +1,5 @@
 Grafo.Algoritmos.nearestNeighbor = function() {
-    lnConsole.message('K-Nearest-neighbor Search');
+    console.log('K-Nearest-neighbor Search has started...');
 
     var nodes = Grafo.MatrizAdj.length;
     var k = 3;

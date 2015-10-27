@@ -10,6 +10,23 @@ body {
     height:100%;
 }
 
+#status-container {
+    color: #555;
+    font-size: .8em;
+    height: 1.8em;
+    padding: .2em;
+    padding-right: .8em;
+}
+
+.object-type {
+    font-weight: bold;
+}
+
+.object-id {
+    color: #50A9C7;
+    font-weight: bold;
+}
+
 hr.soften {
     height: 1px;
     margin: 70px 0;

@@ -2,7 +2,6 @@ function App(args) {
     Grafo.Grafico.displayLoadingMessage();
 
     if(!args) {
-        lnConsole.start();
         Grafo.loadFromFile();
     }
     else {
@@ -15,12 +14,6 @@ function App(args) {
 }
 
 $(document).ready(function() {
-    $('#bt-console').popover({
-        'html': true,
-        'placement': 'bottom',
-        'content': '<ul id="graph-console"></ul>'
-    }).popover('show');
-
     $('#bt-atualiza-grafo').click(function() {
         return App();
     })
