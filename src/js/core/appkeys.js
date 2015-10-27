@@ -36,8 +36,6 @@
 
             if(this.TeclaAtual == 65) // A
                 return $('#bt-algoritmos').click()
-            if(this.TeclaAtual == 67) // C
-                return $('#bt-console').click()
             if(this.TeclaAtual == 82) // R
                 return $('#bt-atualiza-grafo').click()
             if(this.TeclaAtual == 79) // O

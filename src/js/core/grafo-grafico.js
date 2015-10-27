@@ -149,8 +149,7 @@
         $('#matrix-modal .modal-body').append($matriz);
         $('#matrix-modal .modal-body').append('<p><strong>mean(degree):</strong> ' + Grafo.MediaDeGraus + '</p>');
 
-        lnConsole.message('Rendering complete.', $('.node').length + ' nodes and ' + $('.link').length + ' edges');
-        return false
+        return false;
     }
 
     Grafo.Grafico.displayLoadingMessage = function() {
@@ -163,33 +162,26 @@
         return false
     }
 
-    function selectNode(d, el, key, inibeConsole) {
+    function selectNode(d, el, key) {
         var obj = $('#' +d.index +'.node')[0],
-            D3Circle = d3.select(obj).select('circle'), i, tmpDesc = '<ul>'
+            D3Circle = d3.select(obj).select('circle'), i, adjacentNodes = '';
 
-        // se existe um link em que o source ou target sao iguais a d.index,
-        // exibe a outra ponta dele (o outro vertice)
-        $('.link').each(function(){
-            if (this.__data__.source.index == d.index)
-                tmpDesc += '<li>' +(this.__data__.target.index +1)  +'</li>'
+        D3Circle
+            .transition()
+            .duration(300)
+            .attr({'r': function() { return .9 * D3Circle.attr('r'); }});
 
-            if (this.__data__.target.index == d.index)
-                tmpDesc += '<li>' +(this.__data__.source.index +1)  +'</li>'
-        })
-        tmpDesc += '</ul>'
+		d3.select(obj).attr('class', 'nodeSelected');
 
-        D3Circle.transition()
-        .duration(300)
-        .attr({
-			'r': function() { return D3Circle.attr('r') *0.9 },
-		})
-
-		d3.select(obj).attr('class', 'nodeSelected')
-
-        if (!inibeConsole || inibeConsole === 'undefined')
-            lnConsole.message('Node ' +(d.index +1) + (d.name ? ': ' + d.name : ''), 'Degree: ' + Grafo.Grau[d.index]
-                     + '<br />' +'Adjacent nodes: ' +tmpDesc, 'console-message-node', obj)
+        $('#status-container > .object-type').html('node');
+        $('#status-container > .object-id').html(d.index + 1);
+        $('#status-container > .object-properties').html(JSON.stringify({
+            name: this.__data__.name,
+            color: this.__data__.cor,
+            weight: this.__data__.weight,
+        }));
     }
+
     function unselectNode(v) {
         var obj = $('#' +v.index +'.nodeSelected')[0],
             tmpRaio = Grafo.Grafico.NodeRadius
@@ -201,33 +193,37 @@
         tmpRaio = parseInt(tmpRaio)
 
         if (tmpRaio < Grafo.Grafico.NodeRadius)
-            tmpRaio = Grafo.Grafico.NodeRadius
+            tmpRaio = Grafo.Grafico.NodeRadius;
         if (tmpRaio > Grafo.Grafico.NodeRadius *3)
-            tmpRaio = Grafo.Grafico.NodeRadius *3
+            tmpRaio = Grafo.Grafico.NodeRadius *3;
 
         d3.select(obj).select('circle')
-        .transition()
-        .delay(500)
-        .duration(300)
-        .attr({
-			'r': tmpRaio
-		})
+            .transition()
+            .delay(500)
+            .duration(300)
+            .attr({
+    			'r': tmpRaio,
+    		});
 
-		d3.select(obj).attr('class', 'node')
+		d3.select(obj).attr('class', 'node');
     }
-    function selectEdge(d, key, el, inibeConsole) {
+    function selectEdge(d, key, el) {
         var obj = $('#' +d.id +'.link')[0]
 
-        d3.select(obj)
-        .attr('class', 'linkSelected')
+        d3.select(obj).attr('class', 'linkSelected');
 
-        if (!inibeConsole)
-            lnConsole.message('Edge ' +(d.id +1), 'Weight: ' +d.weight +'<br />Connecting '
-                             +(d.source.index +1) + '-' +(d.target.index +1), 'console-message-edge', obj)
+        $('#status-container > .object-type').html('link');
+        $('#status-container > .object-id').html(d.id + 1);
+        $('#status-container > .object-properties').html(JSON.stringify({
+            source: d.source.index+1,
+            target: d.target.index+1,
+            weight: d.weight,
+        }));
     }
+
     function unselectEdge(d) {
-        var obj = $('#' +d.id +'.linkSelected')[0]
-        d3.select(obj).attr('class', 'link')
+        var obj = $('#' +d.id +'.linkSelected')[0];
+        d3.select(obj).attr('class', 'link');
     }
 
     Grafo.Grafico.selectNode = selectNode;

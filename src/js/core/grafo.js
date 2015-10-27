@@ -73,7 +73,7 @@
         }
 
         else d3.json(Grafo.Arquivo, function(graph, error) {
-            console.log('Arquivo carregado com sucesso! Criando matriz de adjac�ncia...')
+            console.log('File loaded. Creating Adjacency matrix...')
 
             for (var i = 0; i < graph.nodes.length; i++) {
                 Grafo.MatrizAdj[i] = []
@@ -89,20 +89,14 @@
                     Grafo.MatrizAdj[arestAtual.target][arestAtual.source] = arestAtual.value
             }
 
-            console.log('Matriz de adjac�ncia criada com sucesso.')
-
-            Grafo.Init().Grafico.Init()
+            console.log('Adjacency matrix created.')
+            Grafo.Init().Grafico.Init();
         })
 
         return this
     }
 
-    /*
-     * ALGORITMOS DE MANIPULACAO DE GRAFO:
-     * Arquivos dentro da pasta /js/modelos
-     */
-
     Grafo.Init = Init;
     Grafo.loadFromFile = loadFromFile;
-    window.Grafo = Grafo; //  retorna objeto publico
+    window.Grafo = Grafo;
 }());
