@@ -15,7 +15,7 @@ demonstrating the application of fundamental algorithms in Graph Theory.
 
 ## References
 
-* Fundamentos da Teoria dos Grafos para a Computação.
+* M.C. Nicoletti and E.R. Hruschka Jr., Fundamentos da Teoria dos Grafos para a Computação (in Portuguese), available: [livraria cultura](http://www.livrariacultura.com.br/p/fundamentos-da-teoria-dos-grafos-para-computacao-2160121).
 * V. Fortuna, Competições de Programação (in Portuguese) [Online], available: [maratona.vinicius.com/Teoria-dos_grafos/Grafos](http://maratona.viniciusfortuna.com/Teoria-dos-Grafos/Grafos---Implementa%C3%A7%C3%B5es#TOC-Busca-em-Largura-BFS-)
 * E, Aula 1 (in Portuguese) [Online], available: [mat.ufmg.br/~elaine/...](http://mat.ufmg.br/~elaine/Aperfeicoamento/aula01.pdf).
 * Portugal a Programar [Online], available: [portugal-a-programar.pt/topic/16357-grafos](http://portugal-a-programar.pt/topic/16357-grafos/).
