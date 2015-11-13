@@ -6,7 +6,7 @@ demonstrating the application of fundamental algorithms in Graph Theory.
 *Presented at November 20th, 2012.*
 
 **Note:** a running version of this code can be seen at the following domain:
-[comp-ufscar.github.io/graph-theory-2012-2/](http://comp-ufscar.github.io/graph-theory-2012-2/).
+[comp-ufscar.github.io/graph-theory](http://comp-ufscar.github.io/graph-theory/).
 
 ## Authors
 
