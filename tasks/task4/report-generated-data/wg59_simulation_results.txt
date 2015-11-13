@@ -1,0 +1,145 @@
+Simulacao gerada em	2014-11-18 02:02:42.849000
+
+Grafo WG59:
+
+a) Sementes utilizadas: [5, 21, 2]
+		5 = 8 vertices conectados
+			Vertices: [5, 15, 16, 22, 30, 35, 40, 41]
+
+		21 = 11 vertices conectados
+			Vertices: [21, 1, 3, 55, 8, 9, 24, 26, 36, 37, 51]
+
+		2 = 40 vertices conectados
+			Vertices: [2, 0, 31, 29, 44, 48, 4, 43, 58, 6, 54, 7, 10, 32, 11, 19, 12, 13, 39, 14, 27, 52, 17, 45, 53, 18, 38, 20, 50, 23, 25, 33, 28, 34, 42, 46, 47, 49, 56, 57]
+
+		Vertice	Label	Pi	Lambda
+		0	Augsburg	31	152.0
+		1	Bielefeld	21	20.0
+		2	Bochum	None	0
+		3	Bremen	55	49.0
+		4	Darmstadt	43	70.0
+		5	Essen	None	0
+		6	Freiburg	54	132.0
+		7	Giessen	58	46.0
+		8	Hamburg	55	79.0
+		9	Hannover	21	50.0
+		10	Heilbronn	32	101.0
+		11	Kaiserslautern	19	85.0
+		12	Karlsruhe	19	98.0
+		13	Kassel	39	52.0
+		14	Kempten	27	159.0
+		15	Koblenz	16	45.0
+		16	Koeln	5	17.0
+		17	Landshut	45	159.0
+		18	Lichtenfels	38	104.0
+		19	Mainz	58	60.0
+		20	Muenchen	50	164.0
+		21	Muenster	None	0
+		22	Neuss	5	10.0
+		23	Nuernburg	45	119.0
+		24	Oldenburg	55	47.0
+		25	Regensburg	33	147.0
+		26	Rendsburg	55	95.0
+		27	Stuttgart	52	111.0
+		28	Ulm	10	133.0
+		29	Wuerzburg	44	94.0
+		30	Aachen	22	31.0
+		31	Ansbach	29	114.0
+		32	Aschaffenburg	58	70.0
+		33	Bamberg	44	104.0
+		34	Bayreuth	44	113.0
+		35	Bonn	16	27.0
+		36	Braunschweig	9	68.0
+		37	Bremen	55	54.0
+		38	Coburg	44	99.0
+		39	Dortmund	2	10.0
+		40	Duesseldorf	5	8.0
+		41	Duisburg	5	7.0
+		42	Erlangen	44	115.0
+		43	Frankfurt	58	61.0
+		44	Fulda	48	67.0
+		45	Fuerth	53	116.0
+		46	Gelsen-Kirchen	2	4.0
+		47	Gummersburg	48	20.0
+		48	Hagen	2	7.0
+		49	Hersbruck	53	123.0
+		50	Ingolstadt	58	138.0
+		51	Kiel	55	101.0
+		52	Mannheim	19	81.0
+		53	Marburg	48	41.0
+		54	Offenburg	48	114.0
+		55	Osnabrueck	21	15.0
+		56	Reutlingen	58	119.0
+		57	Saarbruecken	48	85.0
+		58	Siegen	48	29.0
+
+b) Sementes utilizadas: [14, 0, 27]
+		14 = 1 vertices conectados
+			Vertices: [14]
+
+		0 = 14 vertices conectados
+			Vertices: [0, 17, 18, 23, 50, 20, 25, 28, 31, 33, 34, 42, 45, 49]
+
+		27 = 44 vertices conectados
+			Vertices: [27, 1, 13, 44, 29, 2, 48, 58, 19, 52, 3, 55, 53, 32, 4, 5, 16, 15, 6, 7, 8, 9, 10, 11, 12, 21, 39, 22, 35, 24, 26, 30, 36, 37, 38, 40, 41, 43, 46, 47, 51, 54, 56, 57]
+
+		Vertice	Label	Pi	Lambda
+		0	Augsburg	None	0
+		1	Bielefeld	13	131.0
+		2	Bochum	48	111.0
+		3	Bremen	55	166.0
+		4	Darmstadt	52	46.0
+		5	Essen	16	115.0
+		6	Freiburg	27	43.0
+		7	Giessen	32	69.0
+		8	Hamburg	9	182.0
+		9	Hannover	13	137.0
+		10	Heilbronn	27	11.0
+		11	Kaiserslautern	12	40.0
+		12	Karlsruhe	27	19.0
+		13	Kassel	44	98.0
+		14	Kempten	None	0
+		15	Koblenz	19	70.0
+		16	Koeln	15	98.0
+		17	Landshut	0	32.0
+		18	Lichtenfels	23	66.0
+		19	Mainz	52	51.0
+		20	Muenchen	0	18.0
+		21	Muenster	39	124.0
+		22	Neuss	35	108.0
+		23	Nuernburg	50	41.0
+		24	Oldenburg	55	164.0
+		25	Regensburg	0	37.0
+		26	Rendsburg	8	207.0
+		27	Stuttgart	None	0
+		28	Ulm	0	24.0
+		29	Wuerzburg	27	41.0
+		30	Aachen	35	110.0
+		31	Ansbach	0	38.0
+		32	Aschaffenburg	27	42.0
+		33	Bamberg	23	59.0
+		34	Bayreuth	50	59.0
+		35	Bonn	15	88.0
+		36	Braunschweig	44	135.0
+		37	Bremen	55	171.0
+		38	Coburg	29	70.0
+		39	Dortmund	58	108.0
+		40	Duesseldorf	35	108.0
+		41	Duisburg	16	114.0
+		42	Erlangen	50	46.0
+		43	Frankfurt	32	51.0
+		44	Fulda	29	68.0
+		45	Fuerth	50	43.0
+		46	Gelsen-Kirchen	47	114.0
+		47	Gummersburg	52	92.0
+		48	Hagen	58	104.0
+		49	Hersbruck	50	41.0
+		50	Ingolstadt	0	19.0
+		51	Kiel	53	208.0
+		52	Mannheim	27	30.0
+		53	Marburg	32	77.0
+		54	Offenburg	27	31.0
+		55	Osnabrueck	53	132.0
+		56	Reutlingen	27	9.0
+		57	Saarbruecken	12	55.0
+		58	Siegen	19	82.0
